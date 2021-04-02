@@ -43,10 +43,9 @@ class DecoderRNN(nn.Module):
     def sample(self, inputs, states=None, max_len=20):
         " accepts pre-processed image tensor (inputs) and returns predicted sentence (list of tensor ids of length max_len) "
         states = (torch.randn(self.num_layers, 1, self.hidden_size).to(inputs.device), torch.randn(self.num_layers, 1, self.hidden_size).to(inputs.device))
-
         outputList = []
         for i in range(max_len):
-            lstm_out, _ = self.lstm(inputs,states) # get the hidden state given the input
+            lstm_out, states = self.lstm(inputs,states) # get the hidden state given the input
             outputs = self.fc(lstm_out).squeeze(1) # used as a linear layer (softmax) 
             _, pred = outputs.max(1) # find the most probable word
             outputList.append(pred.item()) # add the most probable word into the list
