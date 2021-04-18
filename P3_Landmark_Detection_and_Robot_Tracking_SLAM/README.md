@@ -1,0 +1,8 @@
+# Landmark Detection & Robot Tracking (SLAM)
+## Project Overview
+In this project, you'll implement SLAM for robot that moves and senses in a 2 dimensional, grid world!
+
+SLAM gives us a way to both localize a robot and build up a map of its environment as a robot moves and senses in real-time. This is an active area of research in the fields of robotics and autonomous systems. Since this localization and map-building relies on the visual sensing of landmarks, this is a computer vision problem.
+
+
+![alt image](slam.JPG)
